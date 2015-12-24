@@ -12,7 +12,10 @@ import com.hanyx.hjoyblog.dao.LanguageDao;
  * @author 韩元旭
  */
 public class LanguageUtil {
-	private static Log log = LogFactory.getLog(LanguageUtil.class);
+	
+	private static Log LOGGER = LogFactory.getLog(LanguageUtil.class);
+	
+	private LanguageUtil() {};
 	
 	/** 语言环境 语种*/
 	public static String LANG;
@@ -34,7 +37,7 @@ public class LanguageUtil {
 		.getValue();
 		
 		if (StringUtil.isEmpty(val)) {
-			log.error("[" + LANG + "]语言获取[" + code + "]为空,请检查Language集合配置");
+			LOGGER.error("[" + LANG + "]语言获取[" + code + "]为空,请检查Language集合配置");
 		}
 		
 		return val;
