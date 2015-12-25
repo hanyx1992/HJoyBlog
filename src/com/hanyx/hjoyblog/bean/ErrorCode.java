@@ -2,7 +2,7 @@ package com.hanyx.hjoyblog.bean;
 
 import org.springframework.data.annotation.Id;
 
-public class ErrorLog {
+public class ErrorCode {
 	private String code;
 	@Id
 	private String id;

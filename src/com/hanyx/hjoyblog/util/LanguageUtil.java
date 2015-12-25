@@ -11,7 +11,7 @@ import com.hanyx.hjoyblog.dao.LanguageDao;
  * 多语言支持工具类
  * @author 韩元旭
  */
-public class LanguageUtil {
+public final class LanguageUtil {
 	
 	private static Log LOGGER = LogFactory.getLog(LanguageUtil.class);
 	

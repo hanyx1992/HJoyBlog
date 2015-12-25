@@ -1,4 +1,4 @@
-package com.hanyx.hjoyblog.service;
+package com.hanyx.hjoyblog.service.error;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -6,14 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 
-import com.hanyx.hjoyblog.bean.ErrorLog;
-import com.hanyx.hjoyblog.dao.ErrorLogDao;
+import com.hanyx.hjoyblog.dao.ErrorCodeDao;
 
-
-public class ErrorSvcImpl implements IErrorSvc {
+public class ErrorCodeSvcImpl implements IErrorCodeSvc {
 	@Autowired
-	private ErrorLogDao errorLogDao;
-	private static Log log = LogFactory.getLog(ErrorSvcImpl.class);
+	private ErrorCodeDao errorLogDao;
+	private static Log log = LogFactory.getLog(ErrorCodeSvcImpl.class);
 	@Override
 	public String getValueById(String id) {
 		String value=errorLogDao.queryById(id).getMessage();

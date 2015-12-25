@@ -1,4 +1,4 @@
-package com.hanyx.hjoyblog.service;
+package com.hanyx.hjoyblog.service.sysparam;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

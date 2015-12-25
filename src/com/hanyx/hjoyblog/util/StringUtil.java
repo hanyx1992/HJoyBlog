@@ -1,6 +1,8 @@
 package com.hanyx.hjoyblog.util;
 
-public class StringUtil {
+public final class StringUtil {
+	
+	private StringUtil() {};
 	/**
 	 * ÅÐ¶ÏÊÇ·ñÎª¿Õ
 	 * 

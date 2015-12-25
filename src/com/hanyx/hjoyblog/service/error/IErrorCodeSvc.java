@@ -1,6 +1,6 @@
-package com.hanyx.hjoyblog.service;
+package com.hanyx.hjoyblog.service.error;
 
-public interface IErrorSvc {
+public interface IErrorCodeSvc {
 	public String getValueById(String id);
 	public String getValueByCode(String code);
 }

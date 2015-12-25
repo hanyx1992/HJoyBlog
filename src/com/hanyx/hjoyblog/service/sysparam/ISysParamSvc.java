@@ -1,4 +1,4 @@
-package com.hanyx.hjoyblog.service;
+package com.hanyx.hjoyblog.service.sysparam;
 
 public interface ISysParamSvc {
 	public String getValueByCode(String code);
