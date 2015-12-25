@@ -2,6 +2,10 @@ package com.hanyx.hjoyblog.bean;
 
 import org.springframework.data.annotation.Id;
 
+/**
+ * 错误日志表
+ * @author 梅海风
+ */
 public class ErrorCode {
 	private String code;
 	@Id

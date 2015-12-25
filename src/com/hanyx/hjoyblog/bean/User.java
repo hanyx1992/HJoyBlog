@@ -5,6 +5,10 @@ import java.util.List;
 
 import org.springframework.data.annotation.Id;
 
+/**
+ * 用户表
+ * @author 韩元旭
+ */
 public class User {
 	@Id
 	private String id;
