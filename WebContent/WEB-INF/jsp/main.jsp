@@ -17,6 +17,12 @@
 		.ph-300{min-height: 300px;}/*用于占位*/
 		.mg{margin: 2px;}/*增加边距*/
 		.main{max-width: 87%;margin: 0 auto;}/*页面主体*/
+		
+		.m1{position:absolute;border-bottom:solid 1px gray;max-width:87%;overflow:hidden;}
+		.main-column{position:relative;width:200px;float:right;margin-bottom:0px;padding-top:24px;}
+		.main-column a{font-size:18px;width:64.5px;height:25px;text-align:center;display:inline-block;text-decoration:none;}
+		.my_blog{border:solid 1px black;background-color:#FFFFFF;border-bottom:solid 1px #FFFFFF}
+		.main-column a:hover{border-bottom:solid 1px;color:red}
 	</style>
 </head>
 <body>
@@ -35,9 +41,5 @@
 		</div>
 	</div>
 </body>
-<script type="text/javascript">
-	$(function(){
-		//
-	})
-</script>
+<script type="text/javascript" src="<%=request.getContextPath() %>/style/js/top.js"></script>
 </html>
