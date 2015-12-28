@@ -32,8 +32,9 @@
 	</bean>
 
 	<!-- MongoDB -->
-	<mongo:mongo-client host="10.1.193.123" port="38200"></mongo:mongo-client>
-	<mongo:db-factory dbname="hanyx" mongo-ref="mongo"/>
+	<context:property-placeholder location="classpath:mongodb.properties" />
+	<mongo:mongo-client host="${mongo.db.ip}" port="${mongo.db.port}"></mongo:mongo-client>
+	<mongo:db-factory dbname="${mongo.db.dbname}" mongo-ref="mongo"/>
 	
 	<bean id="mappingContext" class="org.springframework.data.mongodb.core.mapping.MongoMappingContext"/>
 	
