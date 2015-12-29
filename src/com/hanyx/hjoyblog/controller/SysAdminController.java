@@ -21,7 +21,7 @@ public class SysAdminController {
 	public ModelAndView toHomePage() {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("hello", mongoTemplate.getDb());
-		mv.setViewName("/admin/setting");
+		mv.setViewName("/admin/login");
 		return mv;
     }
 }
