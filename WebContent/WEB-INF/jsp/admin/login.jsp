@@ -14,8 +14,8 @@
 			</div>
 			<form class="pure-form">
 				<fieldset class="pure-group">
-					<input type="text" class="pure-input-1" placeholder="请输入用户名" required>
-					<input type="text" class="pure-input-1" placeholder="请输入密码" required>
+					<input type="text" class="pure-input-1" placeholder="请输入用户名" required oninvalid="setCustomValidity('请输入用户名');" oninput="setCustomValidity('');"/>
+					<input type="password" class="pure-input-1" placeholder="请输入密码" required oninvalid="setCustomValidity('请输入密码');" oninput="setCustomValidity('');"/>
 				</fieldset>
 				<label for="option-one" class="pure-checkbox"><input id="option-one" type="checkbox" value="">&nbsp;记住密码</label>
 				<button type="submit" class="pure-button pure-input-1 pure-button-primary">登&nbsp;&nbsp;&nbsp;录</button>
