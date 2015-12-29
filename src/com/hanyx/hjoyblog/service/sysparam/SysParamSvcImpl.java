@@ -11,7 +11,15 @@ import com.hanyx.hjoyblog.dao.SysParamDao;
 import com.hanyx.hjoyblog.util.StringUtil;
 
 public class SysParamSvcImpl implements ISysParamSvc {
+
+	public SysParamDao getSysParamDao() {
+		return sysParamDao;
+	}
 	@Autowired
+	public void setSysParamDao(SysParamDao sysParamDao) {
+		this.sysParamDao = sysParamDao;
+	}
+
 	private SysParamDao sysParamDao;
 	
 	private static Log log = LogFactory.getLog(SysParamSvcImpl.class);

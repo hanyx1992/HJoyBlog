@@ -7,9 +7,11 @@ import org.springframework.data.annotation.Id;
  * @author 梅海风
  */
 public class ErrorCode {
+	/*语言编码*/
 	private String code;
 	@Id
 	private String id;
+	/*错误信息*/
 	private String message;
 
 	public String getCode() {
