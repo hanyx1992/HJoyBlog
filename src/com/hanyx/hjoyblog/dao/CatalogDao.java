@@ -1,7 +1,9 @@
 package com.hanyx.hjoyblog.dao;
 
-import com.hanyx.hjoyblog.bean.Catalog;
+import org.springframework.stereotype.Repository;
 
+import com.hanyx.hjoyblog.bean.Catalog;
+@Repository
 public class CatalogDao extends CommonDao<Catalog> {
 
 	@Override
