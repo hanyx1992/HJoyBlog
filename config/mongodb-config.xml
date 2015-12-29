@@ -11,7 +11,7 @@
 	http://www.springframework.org/schema/data/mongo/spring-mongo.xsd">
 	
 	<context:property-placeholder location="classpath:mongodb.properties" />
-	<mongo:mongo-client host="${mongo.db.ip}" port="${mongo.db.port}"></mongo:mongo-client>
+	<mongo:mongo-client host="${mongo.db.ip}" port="${mongo.db.port}"/>
 	<mongo:db-factory dbname="${mongo.db.dbname}" mongo-ref="mongo"/>
 	
 	<bean id="mappingContext" class="org.springframework.data.mongodb.core.mapping.MongoMappingContext"/>

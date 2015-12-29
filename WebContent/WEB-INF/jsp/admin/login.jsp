@@ -12,10 +12,10 @@
 			<div class = "logo-div">
 				<img class="logo-img" alt="HJoyBlog" src="<%=request.getContextPath()%>/style/img/logo.png">
 			</div>
-			<form class="pure-form">
+			<form class="pure-form" action="login.do" method="POST">
 				<fieldset class="pure-group">
-					<input type="text" class="pure-input-1" placeholder="请输入用户名" required oninvalid="setCustomValidity('请输入用户名');" oninput="setCustomValidity('');"/>
-					<input type="password" class="pure-input-1" placeholder="请输入密码" required oninvalid="setCustomValidity('请输入密码');" oninput="setCustomValidity('');"/>
+					<input type="text" name="loginName" value="${loginName}" class="pure-input-1" placeholder="请输入用户名" required oninvalid="setCustomValidity('请输入用户名');" oninput="setCustomValidity('');"/>
+					<input type="password" name="loginPwd" value="${loginPwd}"  class="pure-input-1" placeholder="请输入密码" required oninvalid="setCustomValidity('请输入密码');" oninput="setCustomValidity('');"/>
 				</fieldset>
 				<label for="option-one" class="pure-checkbox"><input id="option-one" type="checkbox" value="">&nbsp;记住密码</label>
 				<button type="submit" class="pure-button pure-input-1 pure-button-primary">登&nbsp;&nbsp;&nbsp;录</button>
@@ -26,7 +26,10 @@
 </body>
 <script type="text/javascript">
 	$(function(){
-		//
+		var errorMsg = "${errorMsg}";
+		if (errorMsg.length == 0) {
+			alert(errorMsg);
+		}
 	})
 </script>
 </html>

@@ -29,9 +29,12 @@
 		<property name="prefix" value="/WEB-INF/jsp/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
+	
+	<!-- Spring 的统一异常处理 -->
+	<bean id="exceptionHandler" class="com.hanyx.hjoyblog.exception.HJoyBlogExceptionHandler"/>
 
 	<!-- 各种Bean的配置 -->
-	<import resource="classpath:applicationBeans.xml" />
+	<import resource="classpath:application-beans.xml" />
 	
 	<!-- MongoDB的配置 -->
 	<import resource="classpath:mongodb-config.xml" />

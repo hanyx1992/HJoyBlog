@@ -22,7 +22,7 @@ public class User {
 	private String email;
 	/** 手机号 */
 	private String tel;
-	/** 角色 0 - Adminstrator ; 1 - Guest */
+	/** 角色 0 - Administrator ; 1 - Guest */
 	private short role;
 	/** 创建日期 */
 	private Date createDate;

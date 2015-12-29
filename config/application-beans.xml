@@ -11,4 +11,10 @@
 	<bean id="sysParamDao" class="com.hanyx.hjoyblog.dao.SysParamDao"/>
 	<!-- 错误编码DAO -->
 	<bean id="errorLogDao" class="com.hanyx.hjoyblog.dao.ErrorCodeDao"/>
+	<!-- 用户表DAO -->
+	<bean id="userDao" class="com.hanyx.hjoyblog.dao.UserDao"/>
+	
+	
+	<!-- 用户表Svc -->
+	<bean id="userSvc" class="com.hanyx.hjoyblog.service.user.UserSvcImpl"/>
 </beans>
