@@ -10,8 +10,16 @@ import org.springframework.data.mongodb.core.query.Update;
 
 public abstract class CommonDao<T> {
 
-	@Autowired
+	
 	private MongoTemplate mongoTemplate;
+
+	public MongoTemplate getMongoTemplate() {
+		return mongoTemplate;
+	}
+	@Autowired
+	public void setMongoTemplate(MongoTemplate mongoTemplate) {
+		this.mongoTemplate = mongoTemplate;
+	}
 
 	public void save(T t) {
 		this.mongoTemplate.save(t);
