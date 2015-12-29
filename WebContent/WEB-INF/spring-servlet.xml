@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--看到下面的beans这个元素标签没有，必须有标签的声明 -->
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
@@ -31,28 +30,9 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 
-	<!-- MongoDB -->
-	<context:property-placeholder location="classpath:mongodb.properties" />
-	<mongo:mongo-client host="${mongo.db.ip}" port="${mongo.db.port}"></mongo:mongo-client>
-	<mongo:db-factory dbname="${mongo.db.dbname}" mongo-ref="mongo"/>
+	<!-- 各种Bean的配置 -->
+	<import resource="classpath:applicationBeans.xml" />
 	
-	<bean id="mappingContext" class="org.springframework.data.mongodb.core.mapping.MongoMappingContext"/>
-	
-	<bean id="defaultMongoTypeMapper"
-		class="org.springframework.data.mongodb.core.convert.DefaultMongoTypeMapper">
-		<constructor-arg name="typeKey"><null/></constructor-arg>
-	</bean>
-	
-	<bean id="mappingMongoConverter"
-		class="org.springframework.data.mongodb.core.convert.MappingMongoConverter">
-		<constructor-arg name="mongoDbFactory" ref="mongoDbFactory"/>
-		<constructor-arg name="mappingContext" ref="mappingContext"/>
-		<property name="typeMapper" ref="defaultMongoTypeMapper" />
-	</bean>
-	
-	<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
-		<constructor-arg name="mongoDbFactory" ref="mongoDbFactory"/>
-		<constructor-arg name="mongoConverter" ref="mappingMongoConverter"/>
-	</bean>
-
+	<!-- MongoDB的配置 -->
+	<import resource="classpath:mongodb-config.xml" />
 </beans>
