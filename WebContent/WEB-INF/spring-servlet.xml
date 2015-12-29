@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< 8e402bfd4471fcf0ab68ea0863d6e3422e7f2bb3
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:mongo="http://www.springframework.org/schema/data/mongo"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
+=======
+    <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context" xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:mongo="http://www.springframework.org/schema/data/mongo" xsi:schemaLocation="http://www.springframework.org/schema/beans
+>>>>>>> 在Spring-servlet中配置bean
 	http://www.springframework.org/schema/beans/spring-beans.xsd
 	http://www.springframework.org/schema/context
 	http://www.springframework.org/schema/context/spring-context.xsd
@@ -10,7 +14,44 @@
 	http://www.springframework.org/schema/mvc/spring-mvc.xsd
 	http://www.springframework.org/schema/data/mongo
 	http://www.springframework.org/schema/data/mongo/spring-mongo.xsd">
+        <!-- 对web包中的所有类进行扫描，以完成Bean创建和自动依赖注入的功能 -->
+        <context:component-scan base-package="com.hanyx.hjoyblog.*" />
+        <!-- 支持spring3.0新的mvc注解 -->
+        <mvc:annotation-driven />
+        <mvc:resources mapping="/style/**" location="/style/" />
+        <!-- 启动Spring MVC的注解功能，完成请求和注解POJO的映射 -->
+        <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
+        <!-- ViewResolver -->
+        <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+            <property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
+            <property name="prefix" value="/WEB-INF/jsp/" />
+            <property name="suffix" value=".jsp" />
+        </bean>
+        <<<<<<< c1714a7a4a285f2d4bcda1ee5fed295896341d2c <!-- 各种Bean的配置 -->
+            <import resource="classpath:applicationBeans.xml" />
+            <!-- MongoDB的配置 -->
+            <import resource="classpath:mongodb-config.xml" /> =======
+            <!-- MongoDB -->
+            <context:property-placeholder location="classpath:mongodb.properties" />
+            <mongo:mongo-client host="${mongo.db.ip}" port="${mongo.db.port}"></mongo:mongo-client>
+            <mongo:db-factory dbname="${mongo.db.dbname}" mongo-ref="mongo" />
+            <bean id="mappingContext" class="org.springframework.data.mongodb.core.mapping.MongoMappingContext" />
+            <bean id="defaultMongoTypeMapper" class="org.springframework.data.mongodb.core.convert.DefaultMongoTypeMapper">
+                <constructor-arg name="typeKey">
+                    <null />
+                </constructor-arg>
+            </bean>
+            <bean id="mappingMongoConverter" class="org.springframework.data.mongodb.core.convert.MappingMongoConverter">
+                <constructor-arg name="mongoDbFactory" ref="mongoDbFactory" />
+                <constructor-arg name="mappingContext" ref="mappingContext" />
+                <property name="typeMapper" ref="defaultMongoTypeMapper" />
+            </bean>
+            <bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
+                <constructor-arg name="mongoDbFactory" ref="mongoDbFactory" />
+                <constructor-arg name="mongoConverter" ref="mappingMongoConverter" />
+            </bean>
 
+<<<<<<< 8e402bfd4471fcf0ab68ea0863d6e3422e7f2bb3
 	<!-- 对web包中的所有类进行扫描，以完成Bean创建和自动依赖注入的功能 -->
 	<context:component-scan base-package="com.hanyx.hjoyblog.*" />
 	<!-- 支持spring3.0新的mvc注解 -->
@@ -85,3 +126,6 @@
 
 >>>>>>> 在Spring-servlet中配置bean
 </beans>
+=======
+    </beans>
+>>>>>>> 在Spring-servlet中配置bean
