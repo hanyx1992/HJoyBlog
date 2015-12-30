@@ -21,4 +21,13 @@ public final class GlobalConstraints {
 	/** Session中管理员的信息 */
 	public static final String SESSION_KEY_USER = "HJOY_USER_INFO";
 	
+	/** 错误编码 */
+	public interface ErrorCode {
+		
+		/** 用户名或密码为空 */
+		public static final int EMPTY_NAME_OR_PWD = 10001;
+		/** 用户名或密码错误 */
+		public static final int WRONG_NAME_OR_PWD = 10002;
+	}
+	
 }
