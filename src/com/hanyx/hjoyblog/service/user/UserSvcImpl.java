@@ -6,6 +6,7 @@ import org.springframework.data.mongodb.core.query.Query;
 
 import com.hanyx.hjoyblog.bean.User;
 import com.hanyx.hjoyblog.dao.UserDao;
+import com.hanyx.hjoyblog.exception.BusiException;
 import com.hanyx.hjoyblog.util.GlobalConstraints;
 import com.hanyx.hjoyblog.util.StringUtil;
 
@@ -33,19 +34,19 @@ public class UserSvcImpl implements IUserSvc{
 
 	@Override
 	public User verifyAdminLogin(String loginName, String loginPwd) throws Exception {
-		//TODO 错误按照编码封装
 		if (StringUtil.isEmpty(loginName) || StringUtil.isEmpty(loginPwd)) {
-			throw new Exception("用户名密码不能为空");
+			throw new BusiException(GlobalConstraints.ErrorCode.EMPTY_NAME_OR_PWD);
 		}
 		//用MD5加密密码
 		loginPwd = StringUtil.encryptByMD5(loginPwd);
 		//按照登录的用户名查找管理员信息(这样的逻辑实际上就是允许有多个管理员了)
 		User user = this.getUserInfoByLoginName(loginName);
-		//
+		
+		//校验密码
 		if (user == null || 
 				user.getRole() != GlobalConstraints.USER_ROLE_ID_ADMINISTRATOR ||
 				user.getLoginPwd().equals(loginPwd)) {
-			throw new Exception("用户名或密码错误");
+			throw new BusiException(GlobalConstraints.ErrorCode.WRONG_NAME_OR_PWD);
 		}
 		
 		return user;
