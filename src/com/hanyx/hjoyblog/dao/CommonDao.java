@@ -4,10 +4,14 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 
+/**
+ * @desc:MongoDB ¹³×Ó
+ * @author º«ÔªÐñ
+ * @param <T>
+ */
 public abstract class CommonDao<T> {
 
 	@Autowired
@@ -18,10 +22,7 @@ public abstract class CommonDao<T> {
 	}
 
 	public T queryById(String id) {
-		Query query = new Query();
-		Criteria criteria = Criteria.where("_id").is(id);
-		query.addCriteria(criteria);
-		return this.mongoTemplate.findOne(query, this.getEntityClass());
+		return this.mongoTemplate.findById(id, this.getEntityClass());
 	}
 
 	public List<T> queryList(Query query) {
@@ -41,16 +42,6 @@ public abstract class CommonDao<T> {
 
 	public Long getPageCount(Query query) {
 		return this.mongoTemplate.count(query, this.getEntityClass());
-	}
-
-	public void deleteById(String id) {
-		Criteria criteria = Criteria.where("_id").in(id);
-		if (null != criteria) {
-			Query query = new Query(criteria);
-			if (null != query && this.queryOne(query) != null) {
-				this.delete(query);
-			}
-		}
 	}
 
 	public void delete(Query query) {

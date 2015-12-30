@@ -3,27 +3,19 @@ package com.hanyx.hjoyblog.bean;
 import org.springframework.data.annotation.Id;
 
 /**
- * 多语言支持配置表
+ * @desc:多语言支持配置表
  * @author 韩元旭
  */
 public class Language {
 
-	@Id
-	private String id;
-	
 	/** 语言编码 */
+	@Id
 	private String code;
 	/** 语言种类枚举 */
 	private String lang;
 	/** 语言文字 */
 	private String value;
 
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
 	public String getCode() {
 		return code;
 	}
