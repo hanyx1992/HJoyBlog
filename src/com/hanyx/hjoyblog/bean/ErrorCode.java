@@ -8,17 +8,17 @@ import org.springframework.data.annotation.Id;
  */
 public class ErrorCode {
 	/*”Ô—‘±‡¬Î*/
-	private String code;
+	private Short code;
 	@Id
 	private String id;
 	/*¥ÌŒÛ–≈œ¢*/
 	private String message;
 
-	public String getCode() {
+	public Short getCode() {
 		return code;
 	}
 
-	public void setCode(String code) {
+	public void setCode(Short code) {
 		this.code = code;
 	}
 

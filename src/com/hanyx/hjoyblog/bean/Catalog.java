@@ -11,29 +11,21 @@ public class Catalog {
 	/*目录名*/
 	@Id
 	private String catalogId;
-	public String getCatalogId() {
-		return catalogId;
-	}
-
-	public void setCatalogId(String catalogId) {
-		this.catalogId = catalogId;
-	}
-
 	/*自定义URL*/
-	private String URL;
+	private String catalogPath;
 	/*权限*/
 	private short permission;
 	/*状态*/
 	private short state;
 	/*日期*/
-	private String create_date;
+	private String createDate;
 
-	public String getURL() {
-		return URL;
+	public String getCatalogPath() {
+		return catalogPath;
 	}
 
-	public void setURL(String uRL) {
-		URL = uRL;
+	public void setCatalogPath(String catalogPath) {
+		this.catalogPath = catalogPath;
 	}
 
 	public short getPermission() {
@@ -42,6 +34,13 @@ public class Catalog {
 
 	public void setPermission(short permission) {
 		this.permission = permission;
+	}
+	public String getCatalogId() {
+		return catalogId;
+	}
+
+	public void setCatalogId(String catalogId) {
+		this.catalogId = catalogId;
 	}
 
 	public short getState() {
@@ -52,11 +51,11 @@ public class Catalog {
 		this.state = state;
 	}
 
-	public String getCreate_date() {
-		return create_date;
+	public String getCreateDate() {
+		return createDate;
 	}
 
-	public void setCreate_date(String create_date) {
-		this.create_date = create_date;
+	public void setCreateDate(String createDate) {
+		this.createDate = createDate;
 	}
 }
