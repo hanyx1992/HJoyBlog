@@ -21,7 +21,7 @@ public class SysParamSvcImpl implements ISysParamSvc {
 		String value = sysParamDao.queryOne(
 				new Query(Criteria.where("code").is(code)))
 				.getValue();
-		if (StringUtil.isEmpty(value)) {
+		if (StringUtil.isRealEmpty(value)) {
 			log.error("[" + code + "]" + "没有对应的值");
 		}
 		return value;
@@ -32,7 +32,7 @@ public class SysParamSvcImpl implements ISysParamSvc {
 		String value = sysParamDao.queryOne(
 				new Query().addCriteria(Criteria.where("code").is(code))
 						.addCriteria(Criteria.where("key").is(key))).getValue();
-		if (StringUtil.isEmpty(value)) {
+		if (StringUtil.isRealEmpty(value)) {
 			log.error("[" + code + "," + key + "]" + "没有对应的值");
 		}
 		return value;
@@ -43,7 +43,7 @@ public class SysParamSvcImpl implements ISysParamSvc {
 		String value = sysParamDao.queryOne(
 				new Query().addCriteria(Criteria.where("key").is(key)))
 				.getValue();
-		if (StringUtil.isEmpty(value)) {
+		if (StringUtil.isRealEmpty(value)) {
 			log.error("[" + key + "]" + "没有对应的值");
 		}
 		return value;

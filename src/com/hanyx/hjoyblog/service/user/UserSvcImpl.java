@@ -21,7 +21,7 @@ public class UserSvcImpl implements IUserSvc{
 
 	@Override
 	public User getUserInfoByLoginName(String loginName) {
-		if (StringUtil.isEmpty(loginName)) {
+		if (StringUtil.isRealEmpty(loginName)) {
 			return null;
 		}
 		//查询该登录名称的可用的用户
@@ -34,7 +34,7 @@ public class UserSvcImpl implements IUserSvc{
 
 	@Override
 	public User verifyAdminLogin(String loginName, String loginPwd) throws Exception {
-		if (StringUtil.isEmpty(loginName) || StringUtil.isEmpty(loginPwd)) {
+		if (StringUtil.isRealEmpty(loginName) || StringUtil.isRealEmpty(loginPwd)) {
 			throw new BusiException(GlobalConstraints.ErrorCode.EMPTY_NAME_OR_PWD);
 		}
 		//用MD5加密密码

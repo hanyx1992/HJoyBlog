@@ -27,7 +27,7 @@ public final class LanguageUtil {
 	public static String get(String code) {
 		LanguageDao dao = new LanguageDao();
 		
-		if (StringUtil.isEmpty(code)) {
+		if (StringUtil.isRealEmpty(code)) {
 			return code;
 		}
 		
@@ -36,7 +36,7 @@ public final class LanguageUtil {
 				.addCriteria(Criteria.where("lang").is(LANG)))
 		.getValue();
 		
-		if (StringUtil.isEmpty(val)) {
+		if (StringUtil.isRealEmpty(val)) {
 			LOGGER.error("[" + LANG + "]语言获取[" + code + "]为空,请检查Language集合配置");
 		}
 		
