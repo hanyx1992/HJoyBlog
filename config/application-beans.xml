@@ -10,13 +10,14 @@
 	<!-- 系统参数DAO -->
 	<bean id="sysParamDao" class="com.hanyx.hjoyblog.dao.SysParamDao"/>
 	<!-- 错误编码DAO -->
-	<bean id="errorLogDao" class="com.hanyx.hjoyblog.dao.ErrorCodeDao"/>
+	<bean id="errorCodeDao" class="com.hanyx.hjoyblog.dao.ErrorCodeDao"/>
 	<!-- 用户表DAO -->
 	<bean id="userDao" class="com.hanyx.hjoyblog.dao.UserDao"/>
-	<!-- 目录表 -->
+	<!-- 目录表DAO -->
 	<bean id="catalogDao" class="com.hanyx.hjoyblog.dao.CatalogDao"/>
 	
 	<!-- 用户表Svc -->
 	<bean id="userSvc" class="com.hanyx.hjoyblog.service.user.UserSvcImpl"/>
+	<!-- 目录表Svc -->
 	<bean id="catalogSvc" class="com.hanyx.hjoyblog.service.catalog.CatalogSvcImpl"/>
 </beans>
