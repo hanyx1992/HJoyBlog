@@ -23,6 +23,8 @@ public final class GlobalConstraints {
 	
 	/** 错误编码 */
 	public interface ErrorCode {
+		/** 未知异常的提示信息 */
+		public static final String UNKNOW_ERROR_MESSAGE = "未知异常";
 		
 		/** 用户名或密码为空 */
 		public static final int EMPTY_NAME_OR_PWD = 10001;
