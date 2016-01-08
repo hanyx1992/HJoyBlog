@@ -10,9 +10,8 @@ import org.springframework.data.annotation.Id;
  * @author º«ÔªÐñ
  */
 public class User {
-	@Id
-	private String id;
 	/** µÇÂ¼Ãû */
+	@Id
 	private String loginName;
 	/** µÇÂ¼ÃÜÂë */
 	private String loginPwd;
@@ -33,12 +32,6 @@ public class User {
 	/** Êý¾Ý×´Ì¬ 0 - Del ; 1 - Used */
 	private short isUsed;
 	
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
 	public String getLoginName() {
 		return loginName;
 	}

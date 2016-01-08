@@ -8,20 +8,16 @@ import org.springframework.data.annotation.Id;
  */
 public class SysParam {
 
+	/** 配置编码 */
 	@Id
-	private String id;
-	
 	private String code;
+	/** 配置key,如果没有则和编码一样 */
 	private String key;
+	/** 配置值 */
 	private String value;
+	/** 配置描述 */
 	private String desc;
 	
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
 	public String getCode() {
 		return code;
 	}

@@ -21,7 +21,7 @@ public abstract class CommonDao<T> {
 		this.mongoTemplate.save(t);
 	}
 
-	public T queryById(String id) {
+	public T queryById(Object id) {
 		return this.mongoTemplate.findById(id, this.getEntityClass());
 	}
 
