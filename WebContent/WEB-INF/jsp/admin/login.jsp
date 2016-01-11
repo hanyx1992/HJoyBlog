@@ -27,7 +27,7 @@
 <script type="text/javascript">
 	$(function(){
 		var errorMsg = "${errorMsg}";
-		if (errorMsg.length == 0) {
+		if (errorMsg.length != 0) {
 			alert(errorMsg);
 		}
 	})
