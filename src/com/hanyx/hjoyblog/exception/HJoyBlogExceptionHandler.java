@@ -5,6 +5,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.view.RedirectView;
 
 import com.hanyx.hjoyblog.util.GlobalConstraints;
 
@@ -15,20 +17,25 @@ import com.hanyx.hjoyblog.util.GlobalConstraints;
 public class HJoyBlogExceptionHandler implements HandlerExceptionResolver{
 
 	@Override
-	@SuppressWarnings("static-access")
 	public ModelAndView resolveException(HttpServletRequest request,
 			HttpServletResponse response, Object handler, Exception e) {
+		ModelAndView mv = null;
 		if (e instanceof BusiException) {
-			switch (((BusiException)e).getCode()) {
+			BusiException busiEx = (BusiException)e;
+			switch (busiEx.getErrorCode()) {
 			case (GlobalConstraints.ErrorCode.EMPTY_NAME_OR_PWD) :
 			case (GlobalConstraints.ErrorCode.WRONG_NAME_OR_PWD) :
-				//TODO返回登录页提示错误信息
+				mv = new ModelAndView();
+				mv.addObject("loginName", request.getParameter("loginName"));
+				mv.addObject("loginPwd", request.getParameter("loginPwd"));
+				mv.addObject("errorMsg", busiEx.getMessage());
+				mv.setViewName("/admin/login");
 				break;
 			default :
 				break;
 			}
 		}
-		return null;
+		return mv;
 	}
 
 }

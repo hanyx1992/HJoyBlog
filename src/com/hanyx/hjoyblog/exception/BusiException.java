@@ -1,5 +1,9 @@
 package com.hanyx.hjoyblog.exception;
 
+import com.hanyx.hjoyblog.service.error.IErrorCodeSvc;
+import com.hanyx.hjoyblog.util.GlobalConstraints;
+import com.hanyx.hjoyblog.util.SpringBeanUtil;
+
 /**
  * @desc: 统一异常Bean
  * @author 韩元旭
@@ -7,21 +11,46 @@ package com.hanyx.hjoyblog.exception;
 public class BusiException extends Exception{
 
 	private static final long serialVersionUID = 9999L;
-
+	
+	/** 用来调用数据库,静态一个足够 */
+	private static IErrorCodeSvc errorCodeSvc;
+	
+	static {
+		errorCodeSvc = (IErrorCodeSvc) SpringBeanUtil.getBean("errorCodeSvc");
+	}
+	
 	/** 错误编码 */
-	private static int code;
+	private int code;
 	/** 错误信息 */
-	private static String msg;
-
+	private String msg;
+	
+	/**
+	 * 默认未知异常
+	 */
+	public BusiException() {
+		this.code = -1;
+		this.msg = GlobalConstraints.ErrorCode.UNKNOW_ERROR_MESSAGE;
+	}
+	
+	/**
+	 * 根据错误编码封装异常
+	 * @param code
+	 */
 	public BusiException(int code) {
-		//TODO 加载Msg
+		this.code = code;
+		this.msg = errorCodeSvc.getMessage(code);
 	}
 
-	public static int getCode() {
+	public int getErrorCode() {
 		return code;
 	}
 
-	public static String getMsg() {
+	/**
+	 * 返回错误信息
+	 */
+	@Override
+	public String getMessage() {
 		return msg;
 	}
+
 }
