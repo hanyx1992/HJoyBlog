@@ -20,4 +20,9 @@
 	<bean id="userSvc" class="com.hanyx.hjoyblog.service.user.UserSvcImpl"/>
 	<!-- 目录表Svc -->
 	<bean id="catalogSvc" class="com.hanyx.hjoyblog.service.catalog.CatalogSvcImpl"/>
+	<!-- 错误编码表Svc -->
+	<bean id="errorCodeSvc" class="com.hanyx.hjoyblog.service.error.ErrorCodeSvcImpl"/>
+
+	<!-- Spring Bean 工具类  -->
+	<bean id="springBeanUtil" class="com.hanyx.hjoyblog.util.SpringBeanUtil" />
 </beans>
