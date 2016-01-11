@@ -45,7 +45,7 @@ public class UserSvcImpl implements IUserSvc{
 		//–£—È√‹¬Î
 		if (user == null || 
 				user.getRole() != GlobalConstraints.USER_ROLE_ID_ADMINISTRATOR ||
-				user.getLoginPwd().equals(loginPwd)) {
+				!user.getLoginPwd().equals(loginPwd)) {
 			throw new BusiException(GlobalConstraints.ErrorCode.WRONG_NAME_OR_PWD);
 		}
 		
