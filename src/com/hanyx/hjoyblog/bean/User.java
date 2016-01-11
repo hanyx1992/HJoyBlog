@@ -69,16 +69,16 @@ public class User {
 		this.role = role;
 	}
 	public Date getCreateDate() {
-		return createDate;
+		return createDate==null?null:(Date)createDate.clone();
 	}
 	public void setCreateDate(Date createDate) {
-		this.createDate = createDate;
+		this.createDate = createDate==null?null:(Date)createDate.clone();
 	}
 	public Date getLastLoginDate() {
-		return lastLoginDate;
+		return lastLoginDate==null?null:(Date)lastLoginDate.clone();
 	}
 	public void setLastLoginDate(Date lastLoginDate) {
-		this.lastLoginDate = lastLoginDate;
+		this.lastLoginDate = lastLoginDate==null?null:(Date)lastLoginDate.clone();
 	}
 	public List<String> getLoginIPs() {
 		return loginIPs;
