@@ -12,7 +12,7 @@ import org.junit.runner.RunWith;
 import com.hanyx.hjoyblog.bean.User;
 import com.hanyx.hjoyblog.dao.UserDao;
 import com.hanyx.hjoyblog.util.GlobalConstraints;
-import com.hanyx.hjoyblog.util.StringUtil;
+import com.hanyx.hjoyblog.util.JBcrypt;
 
 /**
  * @desc:向User用户表中插入初始化数据
@@ -40,7 +40,7 @@ public class UserInit{
 		//初始化数据
 		User u = new User();
 		u.setLoginName("hanyx");
-		u.setLoginPwd(StringUtil.encryptByMD5("123456"));
+		u.setLoginPwd(JBcrypt.hashpw("123456", JBcrypt.gensalt()));
 		u.setNickName("旭丶Joy");
 		u.setRole(GlobalConstraints.USER_ROLE_ID_ADMINISTRATOR);
 		u.setTel("13803648899");

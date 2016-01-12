@@ -23,4 +23,23 @@ public interface IUserSvc {
 	 * @return
 	 */
 	User verifyAdminLogin(String loginName, String loginPwd) throws Exception;
+	
+	/**
+	 * @desc: 记录访问IP地址
+	 * @author: 韩元旭
+	 * @param loginName
+	 * @param loginIP
+	 * @throws Exception
+	 * @date  : 2016年1月12日
+	 */
+	void logLoginIP(String loginName, String loginIP) throws Exception;
+
+	/**
+	 * @desc: 自动登录
+	 * @author: 韩元旭
+	 * @param ip
+	 * @return
+	 * @date  : 2016年1月12日
+	 */
+	User autoLogin(String ip)  throws Exception;
 }

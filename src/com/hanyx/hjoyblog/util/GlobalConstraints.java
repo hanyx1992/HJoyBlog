@@ -21,6 +21,10 @@ public final class GlobalConstraints {
 	/** Session中管理员的信息 */
 	public static final String SESSION_KEY_USER = "HJOY_USER_INFO";
 	
+	/** Cookie中信息 */
+	public static final String COOKIE_KEY_AUTO_LOGIN = "HJOY_BLOG_AUTO_LOGIN";
+	public static final String COOKIE_VALUE_AUTO_LOGIN = "TRUE";
+	
 	/** 错误编码 */
 	public interface ErrorCode {
 		/** 未知异常的提示信息 */
@@ -30,6 +34,15 @@ public final class GlobalConstraints {
 		public static final int EMPTY_NAME_OR_PWD = 10001;
 		/** 用户名或密码错误 */
 		public static final int WRONG_NAME_OR_PWD = 10002;
+		/** 自动登录失败 */
+		public static final int AUTO_LOGIN_FAILD = 10003;
 	}
 	
+	/** 请求路径 */
+	public  interface REQUEST_URL {
+		/** 跳转登录页面 */
+		public static final String TOLOGIN = "/admin/index.do";
+		/** 登录请求 */
+		public static final String LOGIN = "/admin/login.do";
+	}
 }

@@ -13,7 +13,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.hanyx.hjoyblog.bean.Catalog;
 import com.hanyx.hjoyblog.service.catalog.ICatalogSvc;
-import com.hanyx.hjoyblog.util.DateUtil;
 
 @Controller
 public class MainPageController {

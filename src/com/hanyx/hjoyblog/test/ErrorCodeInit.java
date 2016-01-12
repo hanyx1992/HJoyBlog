@@ -43,6 +43,9 @@ public class ErrorCodeInit{
 		
 		data.setCode(GlobalConstraints.ErrorCode.WRONG_NAME_OR_PWD);
 		data.setMessage("用户名或者密码错误");
+		
+		data.setCode(GlobalConstraints.ErrorCode.AUTO_LOGIN_FAILD);
+		data.setMessage("请重新登录");
 		errorCodeDao.save(data);
 	}
 	

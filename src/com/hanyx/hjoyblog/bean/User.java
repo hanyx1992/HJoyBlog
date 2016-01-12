@@ -27,6 +27,8 @@ public class User {
 	private Date createDate;
 	/** 最后登录日期 */
 	private Date lastLoginDate;
+	/** 自动登录的IP地址 */
+	private String autoLoginIP;
 	/** 登录IP集合 */
 	private List<String> loginIPs;
 	/** 数据状态 0 - Del ; 1 - Used */
@@ -79,6 +81,12 @@ public class User {
 	}
 	public void setLastLoginDate(Date lastLoginDate) {
 		this.lastLoginDate = lastLoginDate==null?null:(Date)lastLoginDate.clone();
+	}
+	public String getAutoLoginIP() {
+		return autoLoginIP;
+	}
+	public void setAutoLoginIP(String autoLoginIP) {
+		this.autoLoginIP = autoLoginIP;
 	}
 	public List<String> getLoginIPs() {
 		return loginIPs;

@@ -5,8 +5,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.springframework.web.servlet.view.RedirectView;
 
 import com.hanyx.hjoyblog.util.GlobalConstraints;
 
@@ -25,6 +23,7 @@ public class HJoyBlogExceptionHandler implements HandlerExceptionResolver{
 			switch (busiEx.getErrorCode()) {
 			case (GlobalConstraints.ErrorCode.EMPTY_NAME_OR_PWD) :
 			case (GlobalConstraints.ErrorCode.WRONG_NAME_OR_PWD) :
+			case (GlobalConstraints.ErrorCode.AUTO_LOGIN_FAILD) :
 				mv = new ModelAndView();
 				mv.addObject("loginName", request.getParameter("loginName"));
 				mv.addObject("loginPwd", request.getParameter("loginPwd"));
