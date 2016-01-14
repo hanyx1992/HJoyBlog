@@ -1,5 +1,7 @@
 package com.hanyx.hjoyblog.bean;
 
+import java.util.Date;
+
 import org.springframework.data.annotation.Id;
 
 /**
@@ -18,7 +20,7 @@ public class Catalog {
 	/*×´Ì¬*/
 	private short state;
 	/*ÈÕÆÚ*/
-	private String createDate;
+	private Date createDate;
 
 	public String getCatalogPath() {
 		return catalogPath;
@@ -51,11 +53,11 @@ public class Catalog {
 		this.state = state;
 	}
 
-	public String getCreateDate() {
+	public Date getCreateDate() {
 		return createDate;
 	}
 
-	public void setCreateDate(String createDate) {
+	public void setCreateDate(Date createDate) {
 		this.createDate = createDate;
 	}
 }
