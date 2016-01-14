@@ -20,7 +20,6 @@
 //	/** 语言环境 语种*/
 //	public static String LANG;
 //	static {
-//		//TODO 去系统配置信息表中读取
 //		LANG = "CHS";
 //	}
 //	
