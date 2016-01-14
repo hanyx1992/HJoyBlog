@@ -1,5 +1,6 @@
 package com.hanyx.hjoyblog.service.catalog;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,7 @@ public class CatalogSvcImpl implements ICatalogSvc {
 
 	@Override
 	public void insert(String catalogId, String catalogPath, Short permission,
-			Short state, String createDate) {
+			Short state, Date createDate) {
 		Catalog catalog = new Catalog();
 		catalog.setCatalogId(catalogId);
 		catalog.setCatalogPath(catalogPath);
