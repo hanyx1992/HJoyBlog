@@ -14,6 +14,8 @@ import sun.misc.BASE64Encoder;
 public final class StringUtil extends StringUtils {
 	
 	private StringUtil() {};
+	
+	public static final String EMPTY_STR = "";
 
 	/**
 	 * @desc: ÅÐ¶Ï×Ö·û´®ÊÇ·ñÎª¿Õ,¿Õ°××Ö·ûÒ²Îª¿Õ
