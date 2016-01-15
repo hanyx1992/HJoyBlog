@@ -2,6 +2,7 @@ package com.hanyx.hjoyblog.util;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 public final class DateUtil {
@@ -13,27 +14,87 @@ public final class DateUtil {
 	// 一小时的毫秒数600000 = 24*60*60*1000;
 	private static final int MILLIS_PER_HOUR = 3600000;
 	//日期格式
-	private static final String DateFormat1="yyyy-MM-dd";
-	private static final String DateFormat2="yyyy-MM-dd HH:mm:ss";
+	private static final String DateFormatForyyyyMMdd="yyyy-MM-dd";
+	private static final String DateFormatForyyyyMMddHHmmss="yyyy-MM-dd HH:mm:ss";
 /**
- * 获取当前年月日
+ * 获取当前年月日(String 不含秒)
  * @return
  */
 	public static String getCurrentDay() {
 		Date nowDate = new Date();
-		SimpleDateFormat sdf = new SimpleDateFormat(DateFormat1);
+		SimpleDateFormat sdf = new SimpleDateFormat(DateFormatForyyyyMMdd);
 		return sdf.format(nowDate);
 	}
 /**
- * 获取当前时间
+ * 获取当前时间(字符串类型 含秒)
  * @return
  */
 	public static String getNowTime() {
 		Date nowDate = new Date();
-		SimpleDateFormat sdf = new SimpleDateFormat(DateFormat2);
+		SimpleDateFormat sdf = new SimpleDateFormat(DateFormatForyyyyMMddHHmmss);
 		return sdf.format(nowDate);
 	}
-
+	/**
+	 * @desc: 获取当前时间Date类型
+	 * @author: 梅海风
+	 * @return
+	 * @date  : 2016年1月15日
+	 */
+	public static synchronized Date getCurrDate() {
+		Calendar calendar = Calendar.getInstance();
+		return calendar.getTime();
+	}
+	/**
+	 * @desc:获取日期格式化对象 
+	 * @author: 梅海风
+	 * @param parttern
+	 * @return
+	 * @date  : 2016年1月15日
+	 */
+	private static SimpleDateFormat getFormatter(String parttern) {
+		return new SimpleDateFormat(parttern);
+	}
+	/**
+	 * @desc: 把字符串日期默认转换日期格式的Date对象 含秒
+	 * @author: 梅海风
+	 * @param strDate
+	 * @return
+	 * @date  : 2016年1月15日
+	 */
+	public static Date format2(String strDate) {
+		Date d = null;
+		if ("".equals(strDate)){
+			return null;
+		}else{
+			try {
+				d = getFormatter(DateFormatForyyyyMMddHHmmss).parse(strDate);
+			} catch (ParseException pex) {
+				return null;
+			}
+		}
+		return d;
+	}
+	
+	/**
+	 * @desc: 把字符串日期默认转换日期格式的Date对象 不含秒
+	 * @author: 梅海风
+	 * @param strDate
+	 * @return
+	 * @date  : 2016年1月15日
+	 */
+	public static Date format1(String strDate) {
+		Date d = null;
+		if ("".equals(strDate)){
+			return null;
+		}else{
+			try {
+				d = getFormatter(DateFormatForyyyyMMdd).parse(strDate);
+			} catch (ParseException pex) {
+				return null;
+			}
+		}
+		return d;
+	}
 	/**
 	 * 获取时间差
 	 * 
@@ -42,7 +103,7 @@ public final class DateUtil {
 	 * @return
 	 */
 	public static long getDf(String choose, String lastDate) {
-		SimpleDateFormat sdf = new SimpleDateFormat(DateFormat2);
+		SimpleDateFormat sdf = new SimpleDateFormat(DateFormatForyyyyMMddHHmmss);
 		try {
 			Date ld = sdf.parse(lastDate);
 			Date now = sdf.parse(getNowTime());
