@@ -5,6 +5,10 @@ import java.util.List;
 
 import com.hanyx.hjoyblog.bean.Catalog;
 
+/**
+ * @desc: 目录服务层接口
+ * @author 梅海风
+ */
 public interface ICatalogSvc {
 	public List<Catalog> queryAll();
 

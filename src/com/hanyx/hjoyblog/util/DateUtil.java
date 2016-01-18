@@ -5,7 +5,13 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-public final class DateUtil {
+import org.apache.commons.lang.time.DateUtils;
+
+/**
+ * @desc: 日期时间工具类
+ * @author 梅海风
+ */
+public final class DateUtil extends DateUtils{
 	
 	private DateUtil() {};
 	
@@ -14,26 +20,33 @@ public final class DateUtil {
 	// 一小时的毫秒数600000 = 24*60*60*1000;
 	private static final int MILLIS_PER_HOUR = 3600000;
 	//日期格式
-	private static final String DateFormatForyyyyMMdd="yyyy-MM-dd";
-	private static final String DateFormatForyyyyMMddHHmmss="yyyy-MM-dd HH:mm:ss";
-/**
- * 获取当前年月日(String 不含秒)
- * @return
- */
+	
+	/** yyyy-MM-dd */
+	public static final String YYYY_MM_DD = "yyyy-MM-dd";
+	
+	/** yyyy-MM-dd HH:mm:ss */
+	public static final String YYYY_MM_DD_HH_MM_SS = "yyyy-MM-dd HH:mm:ss";
+	
+	/**
+	 * 获取当前年月日(String 不含秒)
+	 * @return
+	 */
 	public static String getCurrentDay() {
 		Date nowDate = new Date();
-		SimpleDateFormat sdf = new SimpleDateFormat(DateFormatForyyyyMMdd);
+		SimpleDateFormat sdf = new SimpleDateFormat(YYYY_MM_DD);
 		return sdf.format(nowDate);
 	}
-/**
- * 获取当前时间(字符串类型 含秒)
- * @return
- */
+	
+	/**
+	 * 获取当前时间(字符串类型 含秒)
+	 * @return
+	 */
 	public static String getNowTime() {
 		Date nowDate = new Date();
-		SimpleDateFormat sdf = new SimpleDateFormat(DateFormatForyyyyMMddHHmmss);
+		SimpleDateFormat sdf = new SimpleDateFormat(YYYY_MM_DD_HH_MM_SS);
 		return sdf.format(nowDate);
 	}
+	
 	/**
 	 * @desc: 获取当前时间Date类型
 	 * @author: 梅海风
@@ -44,6 +57,7 @@ public final class DateUtil {
 		Calendar calendar = Calendar.getInstance();
 		return calendar.getTime();
 	}
+	
 	/**
 	 * @desc:获取日期格式化对象 
 	 * @author: 梅海风
@@ -54,6 +68,7 @@ public final class DateUtil {
 	private static SimpleDateFormat getFormatter(String parttern) {
 		return new SimpleDateFormat(parttern);
 	}
+	
 	/**
 	 * @desc: 把字符串日期默认转换日期格式的Date对象 含秒
 	 * @author: 梅海风
@@ -67,7 +82,7 @@ public final class DateUtil {
 			return null;
 		}else{
 			try {
-				d = getFormatter(DateFormatForyyyyMMddHHmmss).parse(strDate);
+				d = getFormatter(YYYY_MM_DD_HH_MM_SS).parse(strDate);
 			} catch (ParseException pex) {
 				return null;
 			}
@@ -88,13 +103,14 @@ public final class DateUtil {
 			return null;
 		}else{
 			try {
-				d = getFormatter(DateFormatForyyyyMMdd).parse(strDate);
+				d = getFormatter(YYYY_MM_DD).parse(strDate);
 			} catch (ParseException pex) {
 				return null;
 			}
 		}
 		return d;
 	}
+	
 	/**
 	 * 获取时间差
 	 * 
@@ -103,7 +119,7 @@ public final class DateUtil {
 	 * @return
 	 */
 	public static long getDf(String choose, String lastDate) {
-		SimpleDateFormat sdf = new SimpleDateFormat(DateFormatForyyyyMMddHHmmss);
+		SimpleDateFormat sdf = new SimpleDateFormat(YYYY_MM_DD_HH_MM_SS);
 		try {
 			Date ld = sdf.parse(lastDate);
 			Date now = sdf.parse(getNowTime());

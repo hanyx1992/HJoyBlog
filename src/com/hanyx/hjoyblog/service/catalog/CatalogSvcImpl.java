@@ -7,11 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.mongodb.core.query.Query;
-import org.springframework.stereotype.Service;
 
 import com.hanyx.hjoyblog.bean.Catalog;
 import com.hanyx.hjoyblog.dao.CatalogDao;
 
+/**
+ * @desc: 目录服务层实现
+ * @author 梅海风
+ */
 public class CatalogSvcImpl implements ICatalogSvc {
 	@Autowired
 	private CatalogDao catalogDao;
