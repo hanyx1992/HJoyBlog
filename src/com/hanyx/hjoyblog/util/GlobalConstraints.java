@@ -39,10 +39,16 @@ public final class GlobalConstraints {
 	}
 	
 	/** 请求路径 */
-	public  interface REQUEST_URL {
+	public interface REQUEST_URL {
 		/** 跳转登录页面 */
 		public static final String TOLOGIN = "/admin/index.do";
 		/** 登录请求 */
 		public static final String LOGIN = "/admin/login.do";
+	}
+	
+	/** 系统参数Key */
+	public interface SYS_PARAM {
+		/** 博客名称 */
+		public static final String BLOG_NAME = "blog_name";
 	}
 }
