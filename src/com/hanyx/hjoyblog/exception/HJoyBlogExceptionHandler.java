@@ -9,8 +9,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.hanyx.hjoyblog.util.GlobalConstraints;
 
 /**
- * @desc:全局异常统一处理类
- * @author 韩元旭
+ * @desc:全锟斤拷锟届常统一锟斤拷锟斤拷锟斤拷
+ * @author 锟斤拷元锟斤拷
  */
 public class HJoyBlogExceptionHandler implements HandlerExceptionResolver{
 
@@ -30,6 +30,11 @@ public class HJoyBlogExceptionHandler implements HandlerExceptionResolver{
 				mv.addObject("errorMsg", busiEx.getMessage());
 				mv.setViewName("/admin/login");
 				break;
+			case (GlobalConstraints.ErrorCode.NOT_EXSIT_DATA):
+				mv=new ModelAndView();
+			    mv.addObject("errorMsg",busiEx.getMessage());
+			    mv.setViewName("/admin/click1");
+			    break;
 			default :
 				break;
 			}
